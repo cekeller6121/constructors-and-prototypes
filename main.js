@@ -9,23 +9,29 @@ console.log("main.js file connected");
 //            /____/
 
 // Dog Constructor & Prototype
-function Dog (status, pet, color, human, hungry) {
+function Dog (status, color, hungry) {
   'use strict'
   this.status = status;
-  this.pet = pet;
   this.color = color;
-  this.human = human;
   this.hungry = hungry;
 };
 
 // Instances of Dog
 // Needed: sadie, moonshine, atticus
 
-let sadie = new Dog('normal', true, 'black', '', false);
+let sadie = new Dog('normal', 'black', false);
 
 // let moonshine = new Dog('')
 
+let moonshine = new Dog('', '', true);
+
 // let moonshine = new Dog('hungry')
+
+
+
+// let moonshine = new Dog(true);
+
+let atticus = new Dog();
 
 //     __
 //    / /_  __  ______ ___  ____ _____  _____
@@ -34,14 +40,19 @@ let sadie = new Dog('normal', true, 'black', '', false);
 // /_/ /_/\__,_/_/ /_/ /_/\__,_/_/ /_/____/
 
 // Human Constructor & Prototype
-function Human (name, feed, owner, cool) {
-  this.name = name;
-  this.feed = feed;
-  this.owner = owner;
+function Human (cool) {
   this.cool = cool;
+  this.pet = function(dog) {
+    dog.status = 'happy';
+  }
+  this.feed = function(dog) {
+    dog.hungry = false;
+  }
 }
 
 // Instances of Human
 // Needed: mason, julia
 
-let human = new Human('mason');
+let mason = new Human(false);
+
+let julia = new Human(true);
